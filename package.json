@@ -1,6 +1,6 @@
 {
   "name": "@voken/base32",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "VOKEN Flavored Base32 Encoding and Decoding",
   "keywords": [
     "base32",
@@ -13,15 +13,15 @@
     "encode",
     "encoding"
   ],
-  "homepage": "https://github.com/voken1000g/js-base32",
+  "homepage": "https://github.com/voken1000g/npm-base32",
   "author": "@voken1000g",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/voken1000g/js-base32"
+    "url": "https://github.com/voken1000g/npm-base32"
   },
   "bugs": {
-    "url": "https://github.com/voken1000g/js-base32/issues"
+    "url": "https://github.com/voken1000g/npm-base32/issues"
   },
 
   "main": "src/base32.js",
