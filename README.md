@@ -10,13 +10,13 @@ Install
 
 
 ```
-npm i --save @voken1000g/base32
+npm i --save @voken/base32
 ```
 
 for yarn:
 
 ```
-yarn add @voken1000g/base32
+yarn add @voken/base32
 ```
 
 
@@ -30,10 +30,10 @@ API
 **example**:
 
 ```js
-const base32 = require('@voken1000g/base32')
+const base32 = require('@voken/base32')
 
 const bytes = Buffer.from('This is a example.')
-const decoded = bs58.encode(bytes)
+const decoded = base32.encode(bytes)
 console.log(decoded)
 // => 58t39ecg6jvs0c4g6ax31dnr6rs9e
 ```
@@ -46,10 +46,10 @@ console.log(decoded)
 **example**:
 
 ```js
-const bs58 = require('bs58')
+const base32 = require('@voken/base32')
 
 const encoded = '58t39ecg6jvs0c4g6ax31dnr6rs9e'
-const bytes = bs58.decode(encoded)
+const bytes = base32.decode(encoded)
 console.log(bytes.toString())
 // => This is a example.
 ```
