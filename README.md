@@ -1,5 +1,5 @@
-base32
-======
+@voken/base32
+=============
 
 JavaScript component to compute voken flavored base 32 encoding.
 This encoding is typically used for VOKEN (crypto-currency).
