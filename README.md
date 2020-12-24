@@ -5,6 +5,10 @@ JavaScript component to compute voken flavored base 32 encoding,
 with the checksum by default.
 This encoding is typically used for VOKEN (crypto-currency).
 
+```javascript
+const ALPHABET = '0123456789abcdefghjkmnpqrstuvwxy'
+```
+
 
 Install
 -------
@@ -36,7 +40,7 @@ const base32 = require('@voken/base32')
 const bytes = Buffer.from('This is a example.')
 const decoded = base32.encode(bytes)
 console.log(decoded)
-// => 58t39ecg6jvs0c4g6ax31dnr6rs9e
+// => AhM6jvS0d5Sj0R90CNV62UbGDHjJV
 ```
 
 
@@ -49,7 +53,7 @@ console.log(decoded)
 ```js
 const base32 = require('@voken/base32')
 
-const encoded = '58t39ecg6jvs0c4g6ax31dnr6rs9e'
+const encoded = 'AhM6jvS0d5Sj0R90CNV62UbGDHjJV'
 const bytes = base32.decode(encoded)
 console.log(bytes.toString())
 // => This is a example.
