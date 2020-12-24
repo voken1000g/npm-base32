@@ -1,7 +1,8 @@
 @voken/base32
 =============
 
-JavaScript component to compute voken flavored base 32 encoding.
+JavaScript component to compute voken flavored base 32 encoding,
+with the checksum by default.
 This encoding is typically used for VOKEN (crypto-currency).
 
 

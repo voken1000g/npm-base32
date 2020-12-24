@@ -1,82 +1,109 @@
 {
   "valid": [
     {
-      "hex": "",
-      "string": ""
+      "encoding": "utf-8",
+      "input": "",
+      "output": ""
     },
     {
-      "hex": "61",
-      "string": "31"
+      "encoding": "utf-8",
+      "input": "This is a sample",
+      "output": "ahM6Jvs0d5SJ0r90EDGptV3CcM"
     },
     {
-      "hex": "626262",
-      "string": "64rk2"
+      "encoding": "hex",
+      "input": "",
+      "output": ""
     },
     {
-      "hex": "636363",
-      "string": "66ru3"
+      "encoding": "hex",
+      "input": "61",
+      "output": "c4"
     },
     {
-      "hex": "73696d706c792061206c6f6e6720737472696e67",
-      "string": "edmptv3cf4g6283cdwq6e83kehs6juk7"
+      "encoding": "hex",
+      "input": "626262",
+      "output": "C9H64"
     },
     {
-      "hex": "00eb15231dfceb60925886b67d065299925915aeb172c06647",
-      "string": "03nha8rwyknp14jrgtu7t1jjk695j5dep5sc0sj7"
+      "encoding": "hex",
+      "input": "636363",
+      "output": "CdhP6"
     },
     {
-      "hex": "516b6fcd0f",
-      "string": "a5npyk8f"
+      "encoding": "hex",
+      "input": "73696d706c792061206c6f6e6720737472696e67",
+      "output": "eDmPtV3CF4g6283CDwq6e83kehS6juk7"
     },
     {
-      "hex": "bf4f89001e670274dd",
-      "string": "2ymy2803skg4w6w"
+      "encoding": "hex",
+      "input": "00eb15231dfceb60925886b67d065299925915aeb172c06647",
+      "output": "03NHa8rWyknP14JRGTu7T1jjK695J5dEP5SC0sj7"
     },
     {
-      "hex": "572e4794",
-      "string": "1bjvhvm"
+      "encoding": "hex",
+      "input": "516b6fcd0f",
+      "output": "a5NPYk8f"
     },
     {
-      "hex": "ecac89cad93923c02321",
-      "string": "wjp8kjps74hv08s1"
+      "encoding": "hex",
+      "input": "bf4f89001e670274dd",
+      "output": "qW7Rj00XcV179Q8"
     },
     {
-      "hex": "10c8511e",
-      "string": "8cgm8x"
+      "encoding": "hex",
+      "input": "572e4794",
+      "output": "AvQ4F50"
     },
     {
-      "hex": "00000000000000000000",
-      "string": "0000000000"
+      "encoding": "hex",
+      "input": "ecac89cad93923c02321",
+      "output": "WjP8kJPS74hV08S1"
     },
     {
-      "hex": "801184cd2cdd640ca42cfc3a091c51d549b2f016d454b2774019c2b2d2e08529fd206ec97e",
-      "string": "100hgk6jsqb41jj2sy1t14e53na9pbr1dn2mp9um06e2pb9e1199ymg6wjbx"
+      "encoding": "hex",
+      "input": "10c8511e",
+      "output": "234527g"
     },
     {
-      "hex": "003c176e659bea0f29a3e9bf7880c112b1b31b4dc826268187",
-      "string": "0x1euk5kfn0xad3w6yqh0612aru66tds0k2d0c7"
+      "encoding": "hex",
+      "input": "00000000000000000000",
+      "output": "0000000000000000"
+    },
+    {
+      "encoding": "hex",
+      "input": "801184cd2cdd640ca42cfc3a091c51d549b2f016d454b2774019c2b2d2e08529fd206ec97e",
+      "output": "G08R9K9CuNJ0S91CygW0J72HTn4u5v0PThaB4Wt0371b5Mq0gmMyT83ES5y0"
+    },
+    {
+      "encoding": "hex",
+      "input": "003c176e659bea0f29a3e9bf7880c112b1b31b4dc826268187",
+      "output": "00x1EUk5Kfn0XAd3W6yQH0612aRU66tdS0k2D0c7"
     }
   ],
-  "invalid": [
+  "invalidCharacter": [
     {
-      "description": "non-base32 string",
-      "string": "invalid"
+      "description": "Invalid character",
+      "input": "invalid"
     },
     {
-      "description": "non-base32 alphabet",
-      "string": "c2F0b3NoaQo="
+      "description": "Invalid character",
+      "input": "c2F0b3NoaQo="
     },
     {
       "description": "leading whitespace",
-      "string": " 1111111111"
+      "input": " 1111111111"
     },
     {
       "description": "trailing whitespace",
-      "string": "1111111111 "
-    },
+      "input": "1111111111 "
+    }
+  ],
+  "invalidChecksum": [
     {
-      "description": "unexpected character after whitespace",
-      "string": " \t\n\u000b\f\r skip \r\f\u000b\n\t a"
+      "description": "Invalid checksum",
+      "input": "00x1EUk5Kfn0XAd3W6yQH0612aRU66tdS0k2D0C7"
     }
   ]
+
 }

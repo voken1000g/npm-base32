@@ -1,7 +1,7 @@
 {
   "name": "@voken/base32",
-  "version": "1.0.5",
-  "description": "VOKEN Flavored Base32 Encoding and Decoding",
+  "version": "1.1.2",
+  "description": "VOKEN Flavored Base32 Encoding and Decoding, with the checksum by default.",
   "keywords": [
     "base32",
     "voken",
@@ -24,12 +24,13 @@
     "url": "https://github.com/voken1000g/npm-base32/issues"
   },
   "main": "src/index.js",
+  "types": "src/index.d.ts",
   "devDependencies": {
     "standard": "^16.0.3",
     "tape": "^5.0.1"
   },
   "dependencies": {
-    "base-x": "^3.0.8"
+    "safe-buffer": "^5.2.1"
   },
   "scripts": {
     "standard": "standard",
