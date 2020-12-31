@@ -3,8 +3,12 @@ const sha = require('@voken/sha')
 const ALPHABET = '0123456789abcdefghjkmnpqrstuvwxy'
 
 // encode
-const encode = function (input) {
-  const encoded = encodeWithoutChecksum(input)
+const encode = function (input, checksum = true) {
+  const encoded = _encode(input)
+  if (!checksum) {
+    return encoded
+  }
+
   const encodedArray = encoded.split('')
 
   const hash32 = sha.sha256(encoded)
@@ -22,33 +26,32 @@ const encode = function (input) {
 }
 
 // decode
-const decode = function (input) {
-  const decoded = decodeWithoutChecksum(input)
+const decode = function (input, checksum = true) {
+  const decoded = _decode(input)
+  if (!checksum) {
+    return decoded
+  }
+
   const encodedChecksum = encode(decoded)
 
   if (input !== encodedChecksum) {
-    throw new InvalidChecksum('Invalid checksum with: ' + encodedChecksum)
+    throw new InvalidChecksumError('Invalid checksum')
   }
 
   return decoded
 }
 
 const isChecksum = function (input) {
-  const decoded = decodeWithoutChecksum(input)
+  const decoded = _decode(input)
   const encodedChecksum = encode(decoded)
 
   return input === encodedChecksum
 }
 
 // encode without checksum
-const encodeWithoutChecksum = function (input) {
-  if (Array.isArray(input) || input instanceof Uint8Array) {
-    input = Buffer.from(input)
-  }
-
-  if (!Buffer.isBuffer(input)) {
-    throw new TypeError('Expect `input` is type of Buffer | Uint8Array | Array, but got ' + typeof input)
-  }
+const _encode = function (input) {
+  if (Array.isArray(input) || input instanceof Uint8Array) { input = Buffer.from(input) }
+  if (!Buffer.isBuffer(input)) { throw new TypeError('Expected Buffer') }
 
   let bits = 0
   let value = 0
@@ -76,10 +79,10 @@ const encodeWithoutChecksum = function (input) {
 }
 
 // decode without checksum
-const decodeWithoutChecksum = function (input) {
+const _decode = function (input) {
   input = input.replace(/=+$/, '').toLowerCase()
 
-  let output = new Uint8Array((input.length * 5 / 8) | 0)
+  const output = new Uint8Array((input.length * 5 / 8) | 0)
 
   let bits = 0
   let value = 0
@@ -99,7 +102,7 @@ const decodeWithoutChecksum = function (input) {
 
 // readChar
 const _readChar = function (char) {
-  let idx = ALPHABET.indexOf(char)
+  const idx = ALPHABET.indexOf(char)
 
   if (idx === -1) {
     throw new InvalidCharacterError('Invalid character found: ' + char)
@@ -108,28 +111,27 @@ const _readChar = function (char) {
   return idx
 }
 
-// InvalidCharacterError
-const InvalidCharacterError = function (message) {
-  this.message = message
+class InvalidCharacterError extends Error {
+  constructor(message) {
+    super(message);
+    this.name = "InvalidCharacterError";
+    this.code = 'INVALID_CHARACTER'
+  }
 }
-InvalidCharacterError.prototype = new Error()
-InvalidCharacterError.prototype.name = 'InvalidCharacterError'
 
-// InvalidChecksum
-const InvalidChecksum = function (message) {
-  this.message = message
+class InvalidChecksumError extends Error {
+  constructor(message) {
+    super(message);
+    this.name = "InvalidChecksumError";
+    this.code = 'INVALID_CHECKSUM'
+  }
 }
-InvalidChecksum.prototype = new Error()
-InvalidChecksum.prototype.name = 'InvalidChecksum'
-
 
 module.exports = {
   encode: encode,
   decode: decode,
   isChecksum: isChecksum,
-  encodeWithoutChecksum: encodeWithoutChecksum,
-  decodeWithoutChecksum: decodeWithoutChecksum,
 
   InvalidCharacterError: InvalidCharacterError,
-  InvalidChecksum: InvalidChecksum
+  InvalidChecksumError: InvalidChecksumError
 }
