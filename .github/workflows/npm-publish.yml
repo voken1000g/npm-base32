@@ -27,9 +27,6 @@ jobs:
         with:
           tag_name: ${{ steps.autotagger.outputs.tagname }}
           release_name: ${{ steps.autotagger.outputs.tagname }}
-          body: ${{ steps.autotagger.outputs.tagmessage }}
-          draft: false
-          prerelease: ${{ steps.autotagger.outputs.prerelease == 'yes' }}
 
       - name: setup node
         id: setup_node

@@ -31,7 +31,7 @@
     "tape": "^5.0.1"
   },
   "dependencies": {
-    "@voken/sha": "^1.1.0"
+    "@voken/sha": "^1.1.9"
   },
   "scripts": {
     "standard": "standard",
