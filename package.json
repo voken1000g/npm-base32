@@ -1,6 +1,6 @@
 {
   "name": "@voken/base32",
-  "version": "1.3.1",
+  "version": "1.3.2",
   "description": "VOKEN Flavored Base32 Encoding and Decoding, with the checksum by default.",
   "keywords": [
     "base32",
