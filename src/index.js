@@ -1,4 +1,4 @@
-const sha = require('@voken/sha')
+const crypto = require('crypto')
 
 const ALPHABET = '0123456789abcdefghjkmnpqrstuvwxy'
 
@@ -11,7 +11,7 @@ const encode = function (input, checksum = true) {
 
   const encodedArray = encoded.split('')
 
-  const hash32 = sha.sha256(encoded)
+  const hash32 = crypto.createHash('sha256').update(encoded).digest()
 
   let output = ''
   encodedArray.forEach(function (c, i) {
