@@ -27,7 +27,7 @@
   "types": "src/index.d.ts",
   "devDependencies": {
     "@types/node": "^14.14.16",
-    "standard": "^16.0.3",
+    "standard": "^17.0.0",
     "tape": "^5.0.1"
   },
   "dependencies": {},
